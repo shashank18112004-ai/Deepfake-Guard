@@ -1,0 +1,43 @@
+﻿# Python virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+
+# Datasets
+dataset/
+datasets/
+
+# Model weights
+*.pth
+*.pt
+*.onnx
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# React
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store

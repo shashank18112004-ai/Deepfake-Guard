@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.candidate-page {
+  min-height: 100vh;
+  background: #071321;
+  color: white;
+  padding: 30px;
+}
+
+.candidate-header {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #20354a;
+}
+
+.candidate-header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.candidate-header p {
+  margin-top: 8px;
+  color: #829bb8;
+}
+
+.camera-status {
+  padding: 12px 18px;
+  border: 1px solid #29445e;
+  border-radius: 25px;
+  color: #9badc0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.camera-status span {
+  width: 10px;
+  height: 10px;
+  background: #718096;
+  border-radius: 50%;
+}
+
+.camera-status.connected span {
+  background: #20c76b;
+}
+
+.candidate-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 35px auto;
+  background: #0d1d2e;
+  border: 1px solid #21384f;
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.candidate-title h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.candidate-title p {
+  color: #7e9bb8;
+  margin-top: 8px;
+}
+
+.interview-input {
+  margin: 25px 0;
+}
+
+.interview-input label {
+  display: block;
+  margin-bottom: 9px;
+  color: #a7bad0;
+}
+
+.interview-input input {
+  width: 100%;
+  padding: 14px;
+  background: #071321;
+  border: 1px solid #29435d;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.interview-input input:focus {
+  border-color: #3b82f6;
+}
+
+.candidate-video {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px;
+  height: auto;
+  min-height: 280px;
+  padding: 10px;
+}
+
+.candidate-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hide-video {
+  display: none;
+}
+
+.show-video {
+  display: block;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8ba2bb;
+}
+
+.candidate-camera-icon {
+  font-size: 50px;
+  color: #438dff;
+  margin-bottom: 12px;
+}
+
+.video-placeholder h3 {
+  color: #dce7f5;
+  margin: 8px;
+}
+
+.candidate-message {
+  margin-top: 18px;
+  padding: 12px;
+  background: #091725;
+  border-radius: 8px;
+  color: #91a9c1;
+  text-align: center;
+}
+
+.candidate-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+}
+
+.candidate-buttons button {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.join-button {
+  background: #2563eb;
+  color: white;
+}
+
+.leave-button {
+  background: #172b40;
+  color: white;
+  border: 1px solid #304b65 !important;
+}
+
+.candidate-buttons button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.privacy-info {
+  margin-top: 25px;
+  padding: 17px;
+  background: #091725;
+  border: 1px solid #20384e;
+  border-radius: 10px;
+}
+
+.privacy-info strong {
+  color: #56a0ff;
+}
+
+.privacy-info p {
+  color: #839bb3;
+  margin-bottom: 0;
+}
+
+.candidate-footer {
+  text-align: center;
+  color: #627b95;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.video-tile {
+  position: relative;
+  min-width: 0;
+  min-height: 260px;
+  overflow: hidden;
+  background: #02080e;
+  border: 1px solid #263c51;
+  border-radius: 10px;
+}
+.video-tile video {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+.video-label {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 5px 9px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+}
+.remote-video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  color: #8ba2bb;
+}
+.remote-video-placeholder h3 {
+  color: #dce7f5;
+}
+
+@media (max-width: 600px) {
+  .candidate-page {
+    padding: 15px;
+  }
+
+  .candidate-card {
+    padding: 15px;
+  }
+
+  .candidate-video {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-tile {
+    min-height: 220px;
+  }
+
+  .video-tile video {
+    min-height: 220px;
+  }
+}
+

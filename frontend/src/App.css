@@ -1,0 +1,713 @@
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #07111f;
+  color: #eaf2ff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.dashboard {
+  min-height: 100vh;
+  padding: 28px 6%;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #1d2b3d;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.header p {
+  margin: 7px 0 0;
+  color: #8293aa;
+}
+
+.connection {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  background: #102033;
+  border: 1px solid #1f3854;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.connection-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.connection-dot.connected {
+  background: #22c55e;
+}
+
+.connection-dot.disconnected {
+  background: #f59e0b;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.main-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(330px, 1fr);
+  gap: 25px;
+  align-items: stretch;
+}
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.video-card,
+.detection-card {
+  min-width: 0;
+  background: #0d1928;
+  border: 1px solid #1c2d42;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card-title h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.card-title p {
+  margin: 6px 0 0;
+  color: #71849d;
+  font-size: 13px;
+}
+
+.live-badge {
+  flex-shrink: 0;
+  color: #ff6262;
+  background: #35191d;
+  border: 1px solid #67272e;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* =========================================
+   LIVE INTERVIEW INPUT FORM
+========================================= */
+
+.hr-interview-controls.interview-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 18px;
+}
+
+.hr-interview-controls .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.hr-interview-controls .form-group label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  color: #eaf2ff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.hr-interview-controls .optional-label {
+  color: #8293aa;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Interview ID and connection status */
+
+.hr-interview-controls .hr-interview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+
+.hr-interview-controls .hr-interview-row input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.hr-interview-controls .hr-interview-row > span {
+  flex-shrink: 0;
+  color: #a8b6c8;
+  font-size: 12px;
+}
+
+/* Candidate Name and USN */
+
+.hr-interview-controls .candidate-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+.hr-interview-controls .candidate-fields .form-group {
+  min-width: 0;
+}
+
+/* All three interview inputs */
+
+.hr-interview-controls .form-group input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 42px;
+  margin: 0;
+  padding: 10px 12px;
+
+  color: #eaf2ff;
+  background: #091421;
+  border: 1px solid #29415c;
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 13px;
+  line-height: normal;
+}
+
+.hr-interview-controls .form-group input::placeholder {
+  color: #8293aa;
+  opacity: 1;
+}
+
+.hr-interview-controls .form-group input:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 1px;
+  border-color: #3b82f6;
+}
+
+.hr-interview-controls .form-group input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   VIDEO AREA
+========================================= */
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050b13;
+  border: 1px solid #1c2c40;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.camera-placeholder {
+  text-align: center;
+  color: #71849d;
+}
+
+.camera-placeholder h3 {
+  color: #c6d3e3;
+  margin-bottom: 8px;
+}
+
+.camera-placeholder p {
+  font-size: 13px;
+}
+
+.camera-icon {
+  font-size: 45px;
+  color: #3b82f6;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.start-btn {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.start-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.stop-btn {
+  background: #192638;
+  color: #b9c7d8;
+  border: 1px solid #293a50;
+}
+
+.test-fake-btn {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.test-fake-btn:hover:not(:disabled) {
+  background: #6d28d9;
+}
+
+/* =========================================
+   PREDICTION
+========================================= */
+
+.prediction-box {
+  background: #091421;
+  border: 1px solid #1b2c41;
+  border-radius: 13px;
+  text-align: center;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.prediction-box p {
+  margin: 0;
+  color: #74869e;
+  font-size: 13px;
+}
+
+.prediction {
+  margin: 10px 0;
+  color: #60a5fa;
+  font-size: 35px;
+}
+
+.prediction.real {
+  color: #22c55e;
+}
+
+.prediction.fake {
+  color: #ef4444;
+}
+
+.prediction-box span {
+  color: #687b94;
+  font-size: 12px;
+}
+
+/* =========================================
+   RISK METRIC
+========================================= */
+
+.metric {
+  margin-bottom: 25px;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #a8b6c8;
+}
+
+.metric-header strong {
+  color: #ffffff;
+}
+
+.progress {
+  height: 9px;
+  background: #18273a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-value {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  min-width: 0;
+  background: #101e2f;
+  border: 1px solid #1d3046;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.stat-card span {
+  display: block;
+  color: #73859c;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  font-size: 18px;
+}
+
+/* =========================================
+   DETECTION PIPELINE / SYSTEM INFO
+========================================= */
+
+.system-info {
+  background: #091421;
+  border: 1px solid #1b2c41;
+  border-radius: 12px;
+  padding: 17px;
+}
+
+.system-info h3 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.pipeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #172638;
+  color: #8495aa;
+  font-size: 12px;
+}
+
+.pipeline-item:last-child {
+  border-bottom: none;
+}
+
+.pipeline-item strong {
+  color: #c9d5e4;
+  text-align: right;
+}
+
+/* =========================================
+   GRAD-CAM EXPLAINABILITY
+========================================= */
+
+.gradcam-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #24364d;
+  border-radius: 14px;
+  background: #091725;
+}
+
+.gradcam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.gradcam-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.gradcam-header p {
+  margin: 6px 0 0;
+  color: #7f9bbd;
+  font-size: 13px;
+}
+
+.gradcam-badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(255, 76, 76, 0.15);
+  border: 1px solid rgba(255, 76, 76, 0.35);
+  color: #ff6262;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.gradcam-image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000000;
+  border: 1px solid #24364d;
+}
+
+.gradcam-image {
+  display: block;
+  width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+}
+
+.gradcam-loading {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8ba7c7;
+}
+
+.gradcam-spinner {
+  width: 35px;
+  height: 35px;
+  border: 4px solid #1d334c;
+  border-top-color: #438cff;
+  border-radius: 50%;
+  animation: gradcam-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes gradcam-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gradcam-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.gradcam-info div {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #102033;
+  border: 1px solid #24364d;
+}
+
+.gradcam-info span {
+  display: block;
+  color: #7f9bbd;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.gradcam-info strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.gradcam-note {
+  margin: 14px 0 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(67, 140, 255, 0.08);
+  color: #8ba7c7;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.gradcam-waiting {
+  color: #8ba7c7;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #53667e;
+  font-size: 12px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+  .main-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .dashboard {
+    padding: 22px 4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-card,
+  .detection-card {
+    padding: 16px;
+  }
+
+  .candidate-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hr-interview-controls .candidate-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hr-interview-controls .hr-interview-row {
+    flex-wrap: wrap;
+  }
+
+  .hr-interview-controls .hr-interview-row > span {
+    width: 100%;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .buttons button {
+    padding: 10px 14px;
+  }
+
+  .gradcam-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gradcam-header {
+    flex-wrap: wrap;
+  }
+}
+/* HR's own camera preview */
+.video-container {
+  position: relative;
+}
+
+.hr-local-preview {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 5;
+  width: 28%;
+  max-width: 190px;
+  min-width: 110px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 2px solid #438cff;
+  border-radius: 10px;
+  background: #02080e;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.hr-local-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.hr-local-preview span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 7px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .hr-local-preview {
+    right: 7px;
+    bottom: 7px;
+    min-width: 90px;
+  }
+}
