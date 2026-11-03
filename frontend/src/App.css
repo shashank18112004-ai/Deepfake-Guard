@@ -1,7 +1,24 @@
 
 /* =========================================
-   GLOBAL STYLES
+   DEEPFAKE GUARD — PREMIUM LIGHT THEME
 ========================================= */
+
+:root {
+  color-scheme: light;
+  --page-bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-soft: #f8faff;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: #eef2ff;
+  --text: #172033;
+  --text-secondary: #64748b;
+  --border: #e5eaf2;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --shadow: 0 4px 18px rgba(15, 23, 42, 0.045);
+}
 
 * {
   box-sizing: border-box;
@@ -9,8 +26,8 @@
 
 body {
   margin: 0;
-  background: #07111f;
-  color: #eaf2ff;
+  background: var(--page-bg);
+  color: var(--text);
   font-family: Inter, Arial, sans-serif;
 }
 
@@ -27,21 +44,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   padding-bottom: 22px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #1d2b3d;
+  border-bottom: 1px solid var(--border);
 }
 
 .header h1 {
   margin: 0;
   font-size: 28px;
-  color: #ffffff;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+  color: var(--text);
 }
 
 .header p {
   margin: 7px 0 0;
-  color: #8293aa;
+  color: var(--text-secondary);
+  font-size: 14px;
 }
 
 .connection {
@@ -49,10 +70,12 @@ body {
   align-items: center;
   gap: 9px;
   padding: 10px 16px;
-  background: #102033;
-  border: 1px solid #1f3854;
+  background: #ffffff;
+  border: 1px solid var(--border);
   border-radius: 30px;
-  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .connection-dot {
@@ -60,15 +83,28 @@ body {
   height: 9px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #22c55e;
+  background: var(--warning);
 }
 
 .connection-dot.connected {
-  background: #22c55e;
+  background: var(--success);
+  box-shadow: 0 0 0 4px #dcfce7;
 }
 
 .connection-dot.disconnected {
-  background: #f59e0b;
+  background: var(--warning);
+}
+
+.header a {
+  color: var(--primary) !important;
+  background: var(--primary-soft);
+  border: 1px solid #c7d2fe !important;
+  border-radius: 9px !important;
+  transition: 0.2s ease;
+}
+
+.header a:hover {
+  background: #e0e7ff;
 }
 
 /* =========================================
@@ -89,10 +125,11 @@ body {
 .video-card,
 .detection-card {
   min-width: 0;
-  background: #0d1928;
-  border: 1px solid #1c2d42;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 24px;
+  box-shadow: var(--shadow);
 }
 
 .card-title {
@@ -106,27 +143,29 @@ body {
 .card-title h2 {
   margin: 0;
   font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .card-title p {
   margin: 6px 0 0;
-  color: #71849d;
+  color: var(--text-secondary);
   font-size: 13px;
 }
 
 .live-badge {
   flex-shrink: 0;
-  color: #ff6262;
-  background: #35191d;
-  border: 1px solid #67272e;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
   padding: 6px 11px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* =========================================
-   LIVE INTERVIEW INPUT FORM
+   INTERVIEW FORM
 ========================================= */
 
 .hr-interview-controls.interview-form {
@@ -153,19 +192,17 @@ body {
   display: block;
   width: 100%;
   margin: 0;
-  color: #eaf2ff;
+  color: var(--text);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.5;
 }
 
 .hr-interview-controls .optional-label {
-  color: #8293aa;
+  color: #94a3b8;
   font-size: 12px;
   font-weight: 400;
 }
-
-/* Interview ID and connection status */
 
 .hr-interview-controls .hr-interview-row {
   display: flex;
@@ -183,11 +220,9 @@ body {
 
 .hr-interview-controls .hr-interview-row > span {
   flex-shrink: 0;
-  color: #a8b6c8;
+  color: var(--text-secondary);
   font-size: 12px;
 }
-
-/* Candidate Name and USN */
 
 .hr-interview-controls .candidate-fields {
   display: grid;
@@ -202,40 +237,38 @@ body {
   min-width: 0;
 }
 
-/* All three interview inputs */
-
 .hr-interview-controls .form-group input {
   display: block;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  height: 42px;
+  height: 44px;
   margin: 0;
-  padding: 10px 12px;
-
-  color: #eaf2ff;
-  background: #091421;
-  border: 1px solid #29415c;
-  border-radius: 7px;
-
+  padding: 10px 13px;
+  color: var(--text);
+  background: #ffffff;
+  border: 1px solid #dbe2ed;
+  border-radius: 9px;
   font-family: inherit;
   font-size: 13px;
   line-height: normal;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .hr-interview-controls .form-group input::placeholder {
-  color: #8293aa;
+  color: #94a3b8;
   opacity: 1;
 }
 
 .hr-interview-controls .form-group input:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 1px;
-  border-color: #3b82f6;
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
 
 .hr-interview-controls .form-group input:disabled {
-  opacity: 0.65;
+  background: #f1f5f9;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
@@ -244,10 +277,11 @@ body {
 ========================================= */
 
 .video-container {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #050b13;
-  border: 1px solid #1c2c40;
+  background: #e9eef6;
+  border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
@@ -260,17 +294,19 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #000;
+  background: #111827;
 }
 
 .camera-placeholder {
   text-align: center;
-  color: #71849d;
+  color: var(--text-secondary);
+  padding: 20px;
 }
 
 .camera-placeholder h3 {
-  color: #c6d3e3;
+  color: var(--text);
   margin-bottom: 8px;
+  font-size: 17px;
 }
 
 .camera-placeholder p {
@@ -279,7 +315,7 @@ body {
 
 .camera-icon {
   font-size: 45px;
-  color: #3b82f6;
+  color: var(--primary);
 }
 
 /* =========================================
@@ -300,7 +336,8 @@ button {
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 650;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 button:disabled {
@@ -308,19 +345,28 @@ button:disabled {
   cursor: not-allowed;
 }
 
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
 .start-btn {
-  background: #2563eb;
+  background: var(--primary);
   color: #ffffff;
+  box-shadow: 0 3px 8px rgba(79, 70, 229, 0.18);
 }
 
 .start-btn:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: var(--primary-hover);
 }
 
 .stop-btn {
-  background: #192638;
-  color: #b9c7d8;
-  border: 1px solid #293a50;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.stop-btn:hover:not(:disabled) {
+  background: #f1f5f9;
 }
 
 .test-fake-btn {
@@ -337,8 +383,8 @@ button:disabled {
 ========================================= */
 
 .prediction-box {
-  background: #091421;
-  border: 1px solid #1b2c41;
+  background: #f8faff;
+  border: 1px solid var(--border);
   border-radius: 13px;
   text-align: center;
   padding: 25px;
@@ -347,26 +393,28 @@ button:disabled {
 
 .prediction-box p {
   margin: 0;
-  color: #74869e;
+  color: var(--text-secondary);
   font-size: 13px;
+  font-weight: 600;
 }
 
 .prediction {
   margin: 10px 0;
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 35px;
+  font-weight: 800;
 }
 
 .prediction.real {
-  color: #22c55e;
+  color: var(--success);
 }
 
 .prediction.fake {
-  color: #ef4444;
+  color: var(--danger);
 }
 
 .prediction-box span {
-  color: #687b94;
+  color: var(--text-secondary);
   font-size: 12px;
 }
 
@@ -383,23 +431,25 @@ button:disabled {
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
-  color: #a8b6c8;
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 .metric-header strong {
-  color: #ffffff;
+  color: var(--text);
+  font-weight: 750;
 }
 
 .progress {
   height: 9px;
-  background: #18273a;
+  background: #e9edf5;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .progress-value {
   height: 100%;
-  background: #3b82f6;
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
   border-radius: 10px;
   transition: width 0.3s ease;
 }
@@ -417,30 +467,38 @@ button:disabled {
 
 .stat-card {
   min-width: 0;
-  background: #101e2f;
-  border: 1px solid #1d3046;
-  border-radius: 10px;
-  padding: 15px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 .stat-card span {
   display: block;
-  color: #73859c;
+  color: var(--text-secondary);
   font-size: 12px;
   margin-bottom: 8px;
 }
 
 .stat-card strong {
-  font-size: 18px;
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 750;
 }
 
 /* =========================================
-   DETECTION PIPELINE / SYSTEM INFO
+   DETECTION PIPELINE
 ========================================= */
 
 .system-info {
-  background: #091421;
-  border: 1px solid #1b2c41;
+  background: #f8faff;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 17px;
 }
@@ -448,6 +506,7 @@ button:disabled {
 .system-info h3 {
   margin-top: 0;
   font-size: 14px;
+  color: var(--text);
 }
 
 .pipeline-item {
@@ -456,8 +515,8 @@ button:disabled {
   align-items: flex-start;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid #172638;
-  color: #8495aa;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
   font-size: 12px;
 }
 
@@ -466,20 +525,21 @@ button:disabled {
 }
 
 .pipeline-item strong {
-  color: #c9d5e4;
+  color: var(--text);
   text-align: right;
+  font-weight: 650;
 }
 
 /* =========================================
-   GRAD-CAM EXPLAINABILITY
+   GRAD-CAM
 ========================================= */
 
 .gradcam-section {
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #24364d;
+  border: 1px solid #dbe3f1;
   border-radius: 14px;
-  background: #091725;
+  background: #f8faff;
 }
 
 .gradcam-header {
@@ -492,22 +552,22 @@ button:disabled {
 
 .gradcam-header h3 {
   margin: 0;
-  color: #ffffff;
+  color: var(--text);
   font-size: 17px;
 }
 
 .gradcam-header p {
   margin: 6px 0 0;
-  color: #7f9bbd;
+  color: var(--text-secondary);
   font-size: 13px;
 }
 
 .gradcam-badge {
   padding: 6px 10px;
   border-radius: 20px;
-  background: rgba(255, 76, 76, 0.15);
-  border: 1px solid rgba(255, 76, 76, 0.35);
-  color: #ff6262;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
@@ -517,8 +577,8 @@ button:disabled {
   width: 100%;
   overflow: hidden;
   border-radius: 12px;
-  background: #000000;
-  border: 1px solid #24364d;
+  background: #111827;
+  border: 1px solid var(--border);
 }
 
 .gradcam-image {
@@ -534,14 +594,14 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #8ba7c7;
+  color: var(--text-secondary);
 }
 
 .gradcam-spinner {
   width: 35px;
   height: 35px;
-  border: 4px solid #1d334c;
-  border-top-color: #438cff;
+  border: 4px solid #e0e7ff;
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: gradcam-spin 0.8s linear infinite;
   margin-bottom: 12px;
@@ -564,19 +624,19 @@ button:disabled {
   min-width: 0;
   padding: 12px;
   border-radius: 10px;
-  background: #102033;
-  border: 1px solid #24364d;
+  background: #ffffff;
+  border: 1px solid var(--border);
 }
 
 .gradcam-info span {
   display: block;
-  color: #7f9bbd;
+  color: var(--text-secondary);
   font-size: 12px;
   margin-bottom: 5px;
 }
 
 .gradcam-info strong {
-  color: #ffffff;
+  color: var(--text);
   font-size: 14px;
 }
 
@@ -584,16 +644,103 @@ button:disabled {
   margin: 14px 0 0;
   padding: 12px;
   border-radius: 8px;
-  background: rgba(67, 140, 255, 0.08);
-  color: #8ba7c7;
+  background: #eef2ff;
+  color: #475569;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .gradcam-waiting {
-  color: #8ba7c7;
+  color: var(--text-secondary);
   text-align: center;
   padding: 20px;
+}
+
+/* =========================================
+   CURRENT DETECTION HISTORY
+   Overrides existing inline dark styles
+========================================= */
+
+.current-history {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow);
+}
+
+.current-history h2 {
+  color: var(--text);
+  font-size: 19px;
+}
+
+.current-history p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.current-history strong {
+  color: var(--text);
+}
+
+.current-history a {
+  color: var(--primary) !important;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.current-history a:hover {
+  text-decoration: underline;
+}
+
+/* Retry Save button */
+.current-history button,
+button:not(.start-btn):not(.stop-btn):not(.test-fake-btn) {
+  font-family: inherit;
+}
+
+/* =========================================
+   HR LOCAL CAMERA PREVIEW
+========================================= */
+
+.video-container {
+  position: relative;
+}
+
+.hr-local-preview {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 5;
+  width: 28%;
+  max-width: 190px;
+  min-width: 110px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: #111827;
+  box-shadow: 0 3px 15px rgba(15, 23, 42, 0.3);
+}
+
+.hr-local-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.hr-local-preview span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 7px;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.75);
+  font-size: 11px;
+  text-align: center;
 }
 
 /* =========================================
@@ -603,7 +750,7 @@ button:disabled {
 footer {
   text-align: center;
   margin-top: 30px;
-  color: #53667e;
+  color: #94a3b8;
   font-size: 12px;
 }
 
@@ -626,13 +773,21 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .dashboard {
+    padding: 16px 4%;
+  }
+
+  .header {
+    gap: 14px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
   .video-card,
   .detection-card {
     padding: 16px;
-  }
-
-  .candidate-fields {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .hr-interview-controls .candidate-fields {
@@ -662,49 +817,7 @@ footer {
   .gradcam-header {
     flex-wrap: wrap;
   }
-}
-/* HR's own camera preview */
-.video-container {
-  position: relative;
-}
 
-.hr-local-preview {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  z-index: 5;
-  width: 28%;
-  max-width: 190px;
-  min-width: 110px;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border: 2px solid #438cff;
-  border-radius: 10px;
-  background: #02080e;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-}
-
-.hr-local-preview video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scaleX(-1);
-}
-
-.hr-local-preview span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 5px 7px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.7);
-  font-size: 11px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
   .hr-local-preview {
     right: 7px;
     bottom: 7px;

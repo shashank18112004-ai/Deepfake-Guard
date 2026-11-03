@@ -1,18 +1,29 @@
+
+/* =========================================
+   CANDIDATE PAGE — PREMIUM LIGHT THEME
+========================================= */
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
 }
 
 .candidate-page {
   min-height: 100vh;
-  background: #071321;
-  color: white;
+  background: #f4f6fb;
+  color: #172033;
   padding: 30px;
 }
+
+/* =========================================
+   HEADER
+========================================= */
 
 .candidate-header {
   max-width: 1100px;
@@ -20,60 +31,88 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #20354a;
+  border-bottom: 1px solid #e5eaf2;
 }
 
 .candidate-header h1 {
   margin: 0;
   font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.6px;
+  color: #172033;
 }
 
 .candidate-header p {
   margin-top: 8px;
-  color: #829bb8;
+  color: #64748b;
+  font-size: 14px;
 }
 
+/* =========================================
+   CONNECTION STATUS
+========================================= */
+
 .camera-status {
-  padding: 12px 18px;
-  border: 1px solid #29445e;
+  padding: 11px 17px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 25px;
-  color: #9badc0;
+  color: #64748b;
   display: flex;
   align-items: center;
   gap: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
 }
 
 .camera-status span {
-  width: 10px;
-  height: 10px;
-  background: #718096;
+  width: 9px;
+  height: 9px;
+  background: #94a3b8;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .camera-status.connected span {
-  background: #20c76b;
+  background: #16a34a;
+  box-shadow: 0 0 0 4px #dcfce7;
 }
+
+/* =========================================
+   MAIN CANDIDATE CARD
+========================================= */
 
 .candidate-card {
   width: 100%;
   max-width: 900px;
   margin: 35px auto;
-  background: #0d1d2e;
-  border: 1px solid #21384f;
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
   border-radius: 18px;
   padding: 30px;
+  box-shadow: 0 5px 22px rgba(15, 23, 42, 0.05);
 }
 
 .candidate-title h2 {
   margin: 0;
   font-size: 25px;
+  font-weight: 750;
+  color: #172033;
 }
 
 .candidate-title p {
-  color: #7e9bb8;
+  color: #64748b;
   margin-top: 8px;
+  font-size: 14px;
 }
+
+/* =========================================
+   INTERVIEW ID INPUT
+========================================= */
 
 .interview-input {
   margin: 25px 0;
@@ -82,36 +121,76 @@ body {
 .interview-input label {
   display: block;
   margin-bottom: 9px;
-  color: #a7bad0;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 650;
 }
 
 .interview-input input {
   width: 100%;
-  padding: 14px;
-  background: #071321;
-  border: 1px solid #29435d;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
+  height: 46px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid #dbe2ed;
+  border-radius: 9px;
+  color: #172033;
+  font-family: inherit;
+  font-size: 14px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.interview-input input::placeholder {
+  color: #94a3b8;
 }
 
 .interview-input input:focus {
-  border-color: #3b82f6;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
+
+.interview-input input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   VIDEO LAYOUT
+========================================= */
 
 .candidate-video {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 10px;
+  gap: 14px;
   height: auto;
   min-height: 280px;
   padding: 10px;
+  background: #f8faff;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+}
+
+.video-tile {
+  position: relative;
+  min-width: 0;
+  min-height: 260px;
+  overflow: hidden;
+  background: #111827;
+  border: 1px solid #dbe2ed;
+  border-radius: 11px;
 }
 
 .candidate-video video {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.video-tile video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
   object-fit: cover;
 }
 
@@ -123,6 +202,10 @@ body {
   display: block;
 }
 
+/* =========================================
+   VIDEO PLACEHOLDERS
+========================================= */
+
 .video-placeholder {
   position: absolute;
   inset: 0;
@@ -130,109 +213,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #8ba2bb;
+  color: #94a3b8;
 }
 
 .candidate-camera-icon {
-  font-size: 50px;
-  color: #438dff;
+  font-size: 48px;
+  color: #6366f1;
   margin-bottom: 12px;
 }
 
 .video-placeholder h3 {
-  color: #dce7f5;
+  color: #172033;
   margin: 8px;
 }
 
-.candidate-message {
-  margin-top: 18px;
-  padding: 12px;
-  background: #091725;
-  border-radius: 8px;
-  color: #91a9c1;
-  text-align: center;
-}
-
-.candidate-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 14px;
-}
-
-.candidate-buttons button {
-  border: none;
-  padding: 14px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.join-button {
-  background: #2563eb;
-  color: white;
-}
-
-.leave-button {
-  background: #172b40;
-  color: white;
-  border: 1px solid #304b65 !important;
-}
-
-.candidate-buttons button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.privacy-info {
-  margin-top: 25px;
-  padding: 17px;
-  background: #091725;
-  border: 1px solid #20384e;
-  border-radius: 10px;
-}
-
-.privacy-info strong {
-  color: #56a0ff;
-}
-
-.privacy-info p {
-  color: #839bb3;
-  margin-bottom: 0;
-}
-
-.candidate-footer {
-  text-align: center;
-  color: #627b95;
-  margin-top: 30px;
-  font-size: 14px;
-}
-.video-tile {
-  position: relative;
-  min-width: 0;
-  min-height: 260px;
-  overflow: hidden;
-  background: #02080e;
-  border: 1px solid #263c51;
-  border-radius: 10px;
-}
-.video-tile video {
-  width: 100%;
-  height: 100%;
-  min-height: 260px;
-  object-fit: cover;
-}
-.video-label {
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
-  z-index: 2;
-  padding: 5px 9px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  color: #fff;
-  font-size: 12px;
-}
 .remote-video-placeholder {
   position: absolute;
   inset: 0;
@@ -240,21 +234,178 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 16px;
   text-align: center;
-  color: #8ba2bb;
-}
-.remote-video-placeholder h3 {
-  color: #dce7f5;
+  color: #94a3b8;
+  background: linear-gradient(145deg, #f8faff, #eef2ff);
 }
 
-@media (max-width: 600px) {
+.remote-video-placeholder h3 {
+  color: #334155;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.remote-video-placeholder p {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+/* =========================================
+   VIDEO LABELS
+========================================= */
+
+.video-label {
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  z-index: 2;
+  padding: 6px 11px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* =========================================
+   INTERVIEW MESSAGE
+========================================= */
+
+.candidate-message {
+  margin-top: 18px;
+  padding: 13px 15px;
+  background: #eef2ff;
+  border: 1px solid #dbe3ff;
+  border-radius: 9px;
+  color: #4338ca;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   INTERVIEW ROOM DETAILS
+   Existing inline JSX styles remain unchanged
+========================================= */
+
+.candidate-card > div[style] {
+  color: #64748b !important;
+}
+
+.candidate-card > div[style] strong {
+  color: #172033 !important;
+}
+
+/* =========================================
+   JOIN / LEAVE BUTTONS
+========================================= */
+
+.candidate-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.candidate-buttons button {
+  border: none;
+  padding: 13px 25px;
+  border-radius: 9px;
+  font-weight: 650;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.candidate-buttons button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.join-button {
+  background: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(79, 70, 229, 0.18);
+}
+
+.join-button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.leave-button {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fecaca !important;
+}
+
+.leave-button:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+.candidate-buttons button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   PRIVACY INFORMATION
+========================================= */
+
+.privacy-info {
+  margin-top: 25px;
+  padding: 18px;
+  background: #f8faff;
+  border: 1px solid #e5eaf2;
+  border-radius: 11px;
+}
+
+.privacy-info strong {
+  color: #4f46e5;
+  font-size: 14px;
+}
+
+.privacy-info p {
+  color: #64748b;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.candidate-footer {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
   .candidate-page {
-    padding: 15px;
+    padding: 18px;
+  }
+
+  .candidate-header {
+    align-items: flex-start;
+  }
+
+  .candidate-header h1 {
+    font-size: 25px;
   }
 
   .candidate-card {
-    padding: 15px;
+    margin: 24px auto;
+    padding: 20px;
   }
 
   .candidate-video {
@@ -262,11 +413,33 @@ body {
   }
 
   .video-tile {
-    min-height: 220px;
+    min-height: 230px;
   }
 
   .video-tile video {
-    min-height: 220px;
+    min-height: 230px;
   }
 }
 
+@media (max-width: 420px) {
+  .candidate-page {
+    padding: 12px;
+  }
+
+  .candidate-card {
+    padding: 15px;
+  }
+
+  .candidate-buttons {
+    flex-direction: column;
+  }
+
+  .candidate-buttons button {
+    width: 100%;
+  }
+
+  .camera-status {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+}

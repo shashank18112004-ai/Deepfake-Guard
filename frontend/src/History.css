@@ -1,4 +1,375 @@
-*{box-sizing:border-box}.history-page{min-height:100vh;background:radial-gradient(circle at 20% 0%,#3b1557,#130a22 65%);color:#f7f1ff;font-family:Arial,sans-serif}.history-top{padding:24px max(24px,calc((100vw - 1200px)/2));display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #50365f;gap:20px}.history-top h1{margin:0;font-size:26px}.history-top p{margin:5px 0 0;color:#bcaecb}.history-back{color:#e7c7ff;text-decoration:none;border:1px solid #76518f;border-radius:10px;padding:12px}.history-content{max-width:1200px;margin:auto;padding:30px 24px}.history-heading{display:flex;justify-content:space-between;align-items:center;gap:20px}.history-heading h2{margin:0}.history-heading p,.history-count,.history-note{color:#bbaac9}.history-heading button,.history-filters select{background:#3e2357;color:white;border:1px solid #76518f;border-radius:9px;padding:12px;cursor:pointer}.history-filters{display:flex;gap:12px;margin:25px 0}.history-filters input{flex:1;min-width:0;background:#261635;color:white;border:1px solid #76518f;border-radius:9px;padding:12px}.history-table-wrap{overflow-x:auto;border:1px solid #5b3c73;border-radius:12px}.history-table{width:100%;border-collapse:collapse;min-width:900px}.history-table th,.history-table td{padding:16px 12px;text-align:left;border-bottom:1px solid #442d54}.history-table th{background:#322044;color:#ddc9ee}.history-table tr:hover{background:#291a39}.history-status{font-weight:700;border-radius:8px;padding:6px 10px}.history-real{color:#8ce4b2;background:#173e31}.history-fake{color:#ffb1b1;background:#57202c}.history-error{color:#ffb1b1}.history-note{margin-top:25px;font-size:13px;line-height:1.6}@media(max-width:640px){.history-top{padding:18px}.history-heading{align-items:flex-start}.history-filters{flex-direction:column}}
-.history-download{white-space:nowrap;background:#7042a0;color:#fff;border:1px solid #a677d4;border-radius:9px;padding:10px 12px;font-weight:600;cursor:pointer}.history-download:hover:not(:disabled){background:#8755b7}.history-download:disabled{opacity:.55;cursor:wait}
 
-.history-delete{white-space:nowrap;background:#642632;color:#ffe9ec;border:1px solid #a7475d;border-radius:9px;padding:10px 12px;font-weight:600;cursor:pointer}.history-delete:hover:not(:disabled){background:#873346}.history-delete:disabled{opacity:.55;cursor:wait}
+/* =========================================
+   DEEPFAKE GUARD — HISTORY LIGHT THEME
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+.history-page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  color: #172033;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* HEADER */
+
+.history-top {
+  max-width: 1400px;
+  margin: auto;
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e5eaf2;
+}
+
+.history-top h1 {
+  margin: 0;
+  font-size: 29px;
+  font-weight: 750;
+  color: #172033;
+}
+
+.history-top p {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.history-back {
+  color: #4f46e5;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid #dbe2ed;
+  border-radius: 9px;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 650;
+  transition: 0.2s;
+}
+
+.history-back:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+/* MAIN CONTENT */
+
+.history-content {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 16px;
+  box-shadow: 0 5px 22px rgba(15, 23, 42, 0.05);
+}
+
+/* HEADING */
+
+.history-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.history-heading h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.history-heading p {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.history-heading button {
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.history-heading button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.history-heading button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* SEARCH AND FILTERS */
+
+.history-filters {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.history-filters input,
+.history-filters select {
+  min-height: 44px;
+  background: #ffffff;
+  color: #172033;
+  border: 1px solid #dbe2ed;
+  border-radius: 9px;
+  padding: 11px 13px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.history-filters input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.history-filters input::placeholder {
+  color: #94a3b8;
+}
+
+.history-filters select {
+  min-width: 155px;
+  cursor: pointer;
+}
+
+.history-filters input:focus,
+.history-filters select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+/* RECORD COUNT */
+
+.history-count {
+  margin: 18px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* TABLE */
+
+.history-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e5eaf2;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.history-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 15px 13px;
+  text-align: left;
+  border-bottom: 1px solid #edf0f5;
+  white-space: nowrap;
+}
+
+.history-table th {
+  background: #f8faff;
+  color: #475569;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.history-table td {
+  color: #334155;
+}
+
+.history-table tbody tr {
+  transition: background 0.15s;
+}
+
+.history-table tbody tr:hover {
+  background: #f8faff;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* REAL / FAKE STATUS */
+
+.history-status {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 11px;
+  border-radius: 7px;
+  padding: 6px 10px;
+}
+
+.history-real {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.history-fake {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+/* PDF DOWNLOAD BUTTON */
+
+.history-download {
+  white-space: nowrap;
+  background: #eef2ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.history-download:hover:not(:disabled) {
+  background: #e0e7ff;
+}
+
+.history-download:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* DELETE BUTTON */
+
+.history-delete {
+  white-space: nowrap;
+  background: #fff1f2;
+  color: #dc2626;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.history-delete:hover:not(:disabled) {
+  background: #ffe4e6;
+}
+
+.history-delete:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* ERROR AND LOADING MESSAGES */
+
+.history-error {
+  padding: 12px 15px;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.history-content [role="status"] {
+  color: #4f46e5;
+  font-size: 14px;
+}
+
+.history-content > p:not(.history-count):not(.history-note):not(.history-error) {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* INFORMATION NOTE */
+
+.history-note {
+  margin-top: 25px;
+  padding: 15px 17px;
+  color: #64748b;
+  background: #f8faff;
+  border: 1px solid #e5eaf2;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 700px) {
+  .history-top {
+    padding: 18px;
+    align-items: flex-start;
+  }
+
+  .history-top h1 {
+    font-size: 24px;
+  }
+
+  .history-content {
+    margin: 18px 12px;
+    padding: 17px;
+  }
+
+  .history-heading {
+    align-items: flex-start;
+  }
+
+  .history-filters {
+    flex-direction: column;
+  }
+
+  .history-filters input,
+  .history-filters select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .history-heading button {
+    width: 100%;
+  }
+
+  .history-table {
+    min-width: 1100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .history-top {
+    flex-direction: column;
+  }
+
+  .history-back {
+    display: inline-block;
+  }
+
+  .history-content {
+    padding: 14px;
+  }
+}
